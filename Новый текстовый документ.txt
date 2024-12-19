@@ -1,0 +1,331 @@
+oleg@DESKTOP-GVRFAML:~$ cat > Домашние_животные << EOF
+> Собаки
+> Кошки
+> Хомяки
+> EOF
+oleg@DESKTOP-GVRFAML:~$ cat > Вьючные_животные << EOF
+> Лошади
+> Верблюды
+> Ослы
+> EOF
+oleg@DESKTOP-GVRFAML:~$ cat Домашние_животные Вьючные_животные > Животные
+oleg@DESKTOP-GVRFAML:~$ cat Животные
+Собаки
+Кошки
+Хомяки
+Лошади
+Верблюды
+Ослы
+oleg@DESKTOP-GVRFAML:~$ mv Животные Друзья_человека
+oleg@DESKTOP-GVRFAML:~$ mkdir Мои_животные
+oleg@DESKTOP-GVRFAML:~$ mv Друзья_человека Мои_животные/
+oleg@DESKTOP-GVRFAML:~$ wget https://dev.mysql.com/get/mysql-apt-config_0.8.22-1_all.deb
+--2024-12-19 23:05:58--  https://dev.mysql.com/get/mysql-apt-config_0.8.22-1_all.deb
+Resolving dev.mysql.com (dev.mysql.com)... 23.65.116.35, 2a02:26f0:e80:381::2e31, 2a02:26f0:e80:39f::2e31
+Connecting to dev.mysql.com (dev.mysql.com)|23.65.116.35|:443... connected.
+HTTP request sent, awaiting response... 302 Moved Temporarily
+Location: https://repo.mysql.com//mysql-apt-config_0.8.22-1_all.deb [following]
+--2024-12-19 23:05:59--  https://repo.mysql.com//mysql-apt-config_0.8.22-1_all.deb
+Resolving repo.mysql.com (repo.mysql.com)... 23.46.121.197, 2a02:26f0:e80:39e::1d68, 2a02:26f0:e80:384::1d68
+Connecting to repo.mysql.com (repo.mysql.com)|23.46.121.197|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 18012 (18K) [application/x-debian-package]
+Saving to: ‘mysql-apt-config_0.8.22-1_all.deb’
+
+mysql-apt-config_0.8.22-1_all 100%[=================================================>]  17.59K  --.-KB/s    in 0.04s
+
+2024-12-19 23:06:00 (464 KB/s) - ‘mysql-apt-config_0.8.22-1_all.deb’ saved [18012/18012]
+
+oleg@DESKTOP-GVRFAML:~$ sudo dpkg -i mysql-apt-config_0.8.22-1_all.deb
+[sudo] password for oleg:
+Selecting previously unselected package mysql-apt-config.
+(Reading database ... 41413 files and directories currently installed.)
+Preparing to unpack mysql-apt-config_0.8.22-1_all.deb ...
+Unpacking mysql-apt-config (0.8.22-1) ...
+Setting up mysql-apt-config (0.8.22-1) ...
+Warning: apt-key should not be used in scripts (called from postinst maintainerscript of the package mysql-apt-config)
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+OK
+oleg@DESKTOP-GVRFAML:~$ sudo apt-get update
+Get:1 http://repo.mysql.com/apt/ubuntu bionic InRelease [20.0 kB]
+Hit:2 http://archive.ubuntu.com/ubuntu noble InRelease
+Get:3 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+Get:4 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Err:1 http://repo.mysql.com/apt/ubuntu bionic InRelease
+  The following signatures couldn't be verified because the public key is not available: NO_PUBKEY B7B3B788A8D3785C
+Get:5 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [572 kB]
+Get:6 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+Get:7 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [759 kB]
+Get:8 http://security.ubuntu.com/ubuntu noble-security/main Translation-en [111 kB]
+Get:9 http://security.ubuntu.com/ubuntu noble-security/main amd64 Components [7196 B]
+Get:10 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [795 kB]
+Get:11 http://archive.ubuntu.com/ubuntu noble-updates/main Translation-en [172 kB]
+Get:12 http://security.ubuntu.com/ubuntu noble-security/universe Translation-en [169 kB]
+Get:13 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Components [51.9 kB]
+Get:14 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [151 kB]
+Get:15 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [560 kB]
+Get:16 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [965 kB]
+Get:17 http://security.ubuntu.com/ubuntu noble-security/restricted Translation-en [108 kB]
+Get:18 http://archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [238 kB]
+Get:19 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [309 kB]
+Get:20 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Components [212 B]
+Get:21 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Components [212 B]
+Get:22 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [572 kB]
+Get:23 http://archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [110 kB]
+Get:24 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Components [212 B]
+Get:25 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+Get:26 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [208 B]
+Get:27 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [11.7 kB]
+Get:28 http://archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [216 B]
+Get:29 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]
+Reading package lists... Done
+W: GPG error: http://repo.mysql.com/apt/ubuntu bionic InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY B7B3B788A8D3785C
+E: The repository 'http://repo.mysql.com/apt/ubuntu bionic InRelease' is not signed.
+N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+N: See apt-secure(8) manpage for repository creation and user configuration details.
+oleg@DESKTOP-GVRFAML:~$ sudo apt-get install mysql-server
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+mysql-server is already the newest version (8.0.40-0ubuntu0.24.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 19 not upgraded.
+
+4.
+oleg@DESKTOP-GVRFAML:~$ wget http://example.com/package.deb
+oleg@DESKTOP-GVRFAML:~$ sudo dpkg -i package.deb
+oleg@DESKTOP-GVRFAML:~$ sudo dpkg -r package
+oleg@DESKTOP-GVRFAML:~$ history
+8  wget https://example.com/path/to/htop_3.2.2-2_amd64.deb
+    9  cat > Домашние_животные << EOF
+Собаки
+Кошки
+Хомяки
+
+   10  cat > Домашние_животные << EOF
+Собаки
+Кошки
+Хомяки
+EOF
+
+   11  cat > Вьючные_животные << EOF
+Лошади
+Верблюды
+Ослы
+EOF
+
+   12  cat Домашние_животные Вьючные_животные > Животные
+   13  cat Животные
+   14  mv Животные Друзья_человека
+   15  mkdir Мои_животные
+   16  mv Друзья_человека Мои_животные/
+   17  wget https://dev.mysql.com/get/mysql-apt-config_0.8.22-1_all.deb
+   18  ubuntu
+   19  version
+   20  lsb_release –a
+   21  cat /proc/version
+   22  lsb_release -r
+   23  wget https://dev.mysql.com/downloads/file/?id=534330
+   24  ping google.com
+   25  wget https://dev.mysql.com/downloads/file/?id=534330
+   26  wget https://dev.mysql.com/get/mysql-apt-config_0.8.22-1_all.deb
+   27  sudo dpkg -i mysql-apt-config_0.8.22-1_all.deb
+   28  sudo apt-get update
+   29  sudo apt-get install mysql-server
+   30  wget http://example.com/package.deb
+   31  sudo dpkg -i package.deb
+   32  sudo dpkg -r package
+   33  history
+
+------------------------------------------------------------------------------------
++-------------------+
+|     Животные      |
++-------------------+
+| - имя: String     |
+| - команда: String |
+| - датаРождения: Date |
++-------------------+
+| + выполнитьКоманду() |
++-------------------+
+         ^
+         |
+         |
++-------------------+       +-------------------+
+| Домашние животные |       | Вьючные животные  |
++-------------------+       +-------------------+
+         ^                           ^
+         |                           |
+         |                           |
++-------------------+       +-------------------+
+| Собаки           |       | Лошади           |
++-------------------+       +-------------------+
+| Кошки            |       | Верблюды         |
++-------------------+       +-------------------+
+| Хомяки           |       | Ослы             |
++-------------------+       +-------------------+
+
+
+
+
+---------------------------------------------------------------------------------------
+CREATE DATABASE Друзья_человека;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> USE Друзья_человека;
+ATE TABLE Животные (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    имя VARCHAR(50),
+    команда VARCHAR(50),
+    датаРождения DATE
+);
+
+CREATE TABLE Домашние_животные (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    животное_id INT,
+    FOREIGN KEY (животное_id) REFERENCES Животные(id)
+);
+
+CREATE TABLE Вьючные_живDatabase changed
+mysql>
+mysql> CREATE TABLE Животные (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     имя VARCHAR(50),
+    ->     команда VARCHAR(50),
+    ->     датаРождения DATE
+    -> );
+UTO_INCREMENT PRIMARY KEY,
+    животное_id INT,
+    FOREIGN KEY (животное_id) REFERENCES Животные(id)
+);
+
+CREATE TABLE Собаки (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    животное_id INT,
+    FOREIGN KEY (животное_id) REFERENCES Домашние_животные(id)
+);
+
+CREATE TABLE Кошки (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    животное_id INT,
+    FOREIGN KEY (животное_id) REFERENCES Домашние_животные(id)
+);
+
+CREATE TABLE Хомяки (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    животное_id INT,
+    FOREIGN KEY (животное_id) REFERENCES Домашние_животные(id)
+);
+
+CREATE TABLE Лошади (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    животное_id INT,
+    FOREIGN KEY (животное_id) REFERENCES Вьючные_животные(id)
+);
+
+CREATE TABLE Ослы (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    животное_id INT,
+    FOREIGN KEY (животное_id) REFERENCES Вьючные_животные(id)
+);Query OK, 0 rows affected (0.04 sec)
+
+mysql>
+mysql> CREATE TABLE Домашние_животные (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     животное_id INT,
+    ->     FOREIGN KEY (животное_id) REFERENCES Животные(id)
+    -> );
+Query OK, 0 rows affected (0.08 sec)
+
+mysql>
+mysql> CREATE TABLE Вьючные_животные (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     животное_id INT,
+    ->     FOREIGN KEY (животное_id) REFERENCES Животные(id)
+    -> );
+Query OK, 0 rows affected (0.07 sec)
+
+mysql>
+mysql> CREATE TABLE Собаки (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     животное_id INT,
+    ->     FOREIGN KEY (животное_id) REFERENCES Домашние_животные(id)
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql>
+mysql> CREATE TABLE Кошки (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     животное_id INT,
+    ->     FOREIGN KEY (животное_id) REFERENCES Домашние_животные(id)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql>
+mysql> CREATE TABLE Хомяки (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     животное_id INT,
+    ->     FOREIGN KEY (животное_id) REFERENCES Домашние_животные(id)
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql>
+mysql> CREATE TABLE Лошади (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     животное_id INT,
+    ->     FOREIGN KEY (животное_id) REFERENCES Вьючные_животные(id)
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql>
+mysql> CREATE TABLE Ослы (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     животное_id INT,
+    ->     FOREIGN KEY (животное_id) REFERENCES Вьючные_животные(id)
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> INSERT INTO Животные (имя, команда, датаРождения) VALUES
+    -> ('Бобик', 'Сидеть', '2018-05-10'),
+    -> ('Мурка', 'Прыжок', '2019-03-15'),
+    -> ('Хома', 'Бег', '2020-07-20'),
+    -> ('Буцефал', 'Галоп', '2017-09-12'),
+    -> ('Иа', 'Иа', '2015-04-30');
+ERT INTO Домашние_животные (животное_id) VALUES (1), (2), (3);
+INSERT INTO Вьючные_животные (животное_id) VALUES (4), (5);
+
+INSERT INTO Собаки (животное_id) VALUES (1);
+INSERT INTO Кошки (животное_id) VALUES (2);
+INSERT INTO Хомяки (животное_id) VALUES (3);
+INSERT INTO Лошади (животное_id) VALUES (4);
+INSERT INTO Ослы (животное_id) VALUES (5);Query OK, 5 rows affected (0.02 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+mysql> DELETE FROM Верблюды;
+
+CREATE TABLEERROR 1146 (42S02): Table 'Друзья_человека.Верблюды' doesn't exist
+mysql>
+ Лошади_и_ослыmysql> CREATE TABLE Лошади_и_ослы AS
+    -> SELECT * FROM Лошади
+    -> UNION ALL
+    -> SELECT * FROM Ослы;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> CREATE TABLE Молодые_животные AS
+ELEC    -> SELECT *,
+    ->        TIMESTAMPDIFF(MONTH, датаРождения, CURDATE()) AS возраст_в_месяцах
+    -> FROM Животные
+    -> WHERE датаРождения BETWEEN DATE_SUB(CURDATE(), INTERVAL 3 YEAR) AND DATE_SUB(CURDATE(), INTERVAL 1 YEAR);
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> CREATE TABLE Все_животные AS
+    -> SELECT 'Собаки' AS тип, id, животное_id FROM Собаки
+    -> UNION ALL
+    -> SELECT 'Кошки', id, животное_id FROM Кошки
+    -> UNION ALL
+    -> SELECT 'Хомяки', id, животное_id FROM Хомяки
+    -> UNION ALL
+    -> SELECT 'Лошади', id, животное_id FROM Лошади
+    -> UNION ALL
+    -> SELECT 'Ослы', id, животное_id FROM Ослы;
+Query OK, 3 rows affected (0.04 sec)
+Records: 3  Duplicates: 0  Warnings: 0
